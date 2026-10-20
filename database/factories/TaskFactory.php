@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Task;
+use App\Models\Project;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +20,15 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->words(6,true),
+            'description' => fake()->paragraph(),
+            'project_id' => Project::factory(),
+            'created_by' => User::factory(),
+            'assigned_to' =>User::factory(),
+            'status' => fake()->randomElement(['to_do','in_progress','in_review','done']),
+            'priority' => fake()->randomElement(['low','medium','high','urgent']),
+            'due_date' => fake()->dateTimeBetween('now','+3 months')
+
         ];
     }
 }
