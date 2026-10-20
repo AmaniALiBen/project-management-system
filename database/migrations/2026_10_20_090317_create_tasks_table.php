@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->text('description');
             $table->foreignId('project_id')->constrained('projects')->cascadeOnDelete();
-            $table->foreignId('employee_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('created_by')->constrained('users')->restrictOnDelete();
+            $table->foreignId('assigned_to')->nullable()->constrained('users')->nullOnDelete();
             $table->string('status')->default('to_do');
             $table->string('priority')->default('low');
             $table->date('due_date')->nullable();

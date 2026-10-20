@@ -4,18 +4,17 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
-use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use laravel\Sanctum\HasApiTokens;
 
-#[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    use HasApiTokens,HasFactory, Notifiable;
 
     /**
      * Get the attributes that should be cast.
@@ -36,4 +35,25 @@ class User extends Authenticatable
         'password',
         'role'
     ];
+
+    public function managedProjects(){
+        return $this->hasMany(Project::class,'manager_id');
+    }
+
+    public function projects(){
+        return $this->belongsToMany(Project::class);
+    }
+
+    public function taskComments(){
+        return $this->hasMany(TaskComment::class);
+    }
+
+    public function assignedTasks(){
+        return $this->hasMany(Task::class,'assigned_to');
+    }
+
+    public function createdTasks(){
+        return $this->hasMany(Task::class,'created_by');
+    }
+
 }

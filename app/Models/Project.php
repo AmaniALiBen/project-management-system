@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Override;
 
 
 class Project extends Model
@@ -18,7 +17,18 @@ class Project extends Model
         'manager_id',
         'status',
         'start_date',
-        'end_date'
+        'due_date'
     ];
    
+    public function manager(){
+        return $this->belongsTo(User::class,'manager_id');
+    }
+
+    public function members(){
+        return $this->belongsToMany(User::class);
+    }
+
+    public function tasks(){
+        return $this->hasMany(Task::class);
+    }
 }

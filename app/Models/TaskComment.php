@@ -9,4 +9,18 @@ class TaskComment extends Model
 {
     /** @use HasFactory<\Database\Factories\TaskCommentFactory> */
     use HasFactory;
+
+    protected $fillable = [
+      'task_id',
+      'user_id',
+      'body'
+    ];
+
+    public function task(){
+        return $this->belongsTo(Task::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
