@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use laravel\Sanctum\HasApiTokens;
+use Laravel\Sanctum\HasApiTokens;
 
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
