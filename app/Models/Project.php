@@ -31,4 +31,11 @@ class Project extends Model
     public function tasks(){
         return $this->hasMany(Task::class);
     }
+
+    protected function casts():array{
+        return[
+            'start_date'=>'date',
+            'due_date'=>'date'
+        ];
+    }
 }

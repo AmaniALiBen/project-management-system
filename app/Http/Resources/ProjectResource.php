@@ -14,6 +14,16 @@ class ProjectResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'manager' => new UserResource($this->whenLoaded('manager')),
+            'status' => $this->status,
+            'start_date' => $this->start_date->format('Y-m-d'),
+            'due_date' => $this->due_date?->format('Y-m-d'),
+            'members' => UserResource::collection($this->whenLoaded('members')),
+            'tasks' => TaskResource::collection($this->whenLoaded('tasks')),
+        ];
     }
 }
