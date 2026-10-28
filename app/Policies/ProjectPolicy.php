@@ -4,7 +4,6 @@ namespace App\Policies;
 
 use App\Models\Project;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class ProjectPolicy
 {
@@ -13,7 +12,7 @@ class ProjectPolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,6 +20,16 @@ class ProjectPolicy
      */
     public function view(User $user, Project $project): bool
     {
+        if ($user->role === 'admin') {
+            return true;
+        }
+        if ($user->role === 'manager' && $project->manager_id === $user->id) {
+            return true;
+        }
+        if ($user->role === 'employee' && $project->members()->where('users.id', $user->id)->exists()) {
+            return true;
+        }
+
         return false;
     }
 
@@ -29,6 +38,10 @@ class ProjectPolicy
      */
     public function create(User $user): bool
     {
+        if ($user->role === 'manager' || $user->role === 'admin') {
+            return true;
+        }
+
         return false;
     }
 
@@ -37,7 +50,7 @@ class ProjectPolicy
      */
     public function update(User $user, Project $project): bool
     {
-        return false;
+        return $user->role === 'admin' || $user->id === $project->manager_id;
     }
 
     /**
@@ -45,7 +58,7 @@ class ProjectPolicy
      */
     public function delete(User $user, Project $project): bool
     {
-        return false;
+        return $user->role === 'admin' || $user->id === $project->manager_id;
     }
 
     /**
@@ -61,6 +74,11 @@ class ProjectPolicy
      */
     public function forceDelete(User $user, Project $project): bool
     {
-        return false;
+        return $user->role === 'admin';
+    }
+
+    public function manageMembers(User $user, Project $project): bool
+    {
+        return $user->role === 'admin' || $user->id === $project->manager_id;
     }
 }

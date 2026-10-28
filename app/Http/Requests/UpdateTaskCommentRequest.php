@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateTaskCommentRequest extends FormRequest
 {
@@ -23,7 +24,7 @@ class UpdateTaskCommentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'body'=>'required|string|max:5000'
         ];
     }
 }

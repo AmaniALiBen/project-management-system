@@ -2,9 +2,9 @@
 
 namespace App\Policies;
 
+use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class TaskPolicy
 {
@@ -13,7 +13,7 @@ class TaskPolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,15 +21,18 @@ class TaskPolicy
      */
     public function view(User $user, Task $task): bool
     {
-        return false;
+        return $user->role === 'admin'
+        || ($user->role === 'manager' && $task->project->manager_id === $user->id)
+        || ($user->role === 'employee' && $task->assigned_to === $user->id);
     }
 
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create(User $user, Project $project): bool
     {
-        return false;
+        return $user->role === 'admin' ||
+        ($user->role == 'manager' && $project?->manager_id === $user->id);
     }
 
     /**
@@ -37,7 +40,8 @@ class TaskPolicy
      */
     public function update(User $user, Task $task): bool
     {
-        return false;
+        return $user->role === 'admin'
+        || ($user->role === 'manager' && $task->project?->manager_id === $user->id);
     }
 
     /**
@@ -45,7 +49,8 @@ class TaskPolicy
      */
     public function delete(User $user, Task $task): bool
     {
-        return false;
+        return $user->role === 'admin'
+        || ($user->role === 'manager' && $task->project?->manager_id === $user->id);
     }
 
     /**
@@ -62,5 +67,12 @@ class TaskPolicy
     public function forceDelete(User $user, Task $task): bool
     {
         return false;
+    }
+
+    public function updateStatus(User $user, Task $task)
+    {
+        return $user->role === 'admin'
+        || ($user->role === 'manager' && $task->project?->manager_id === $user->id)
+        || ($user->role === 'employee' && $task->assigned_to === $user->id);
     }
 }

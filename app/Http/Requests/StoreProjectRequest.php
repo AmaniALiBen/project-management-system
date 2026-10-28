@@ -12,7 +12,7 @@ class StoreProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,19 @@ class StoreProjectRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
+       
+        $rules = [
+            'name' => 'required|string|max:255',
+            'description' => 'string|nullable',
+            'status' => 'sometimes|in:planned,active,on_hold,completed,cancelled',
+            'start_date' => 'required|date',
+            'due_date' => 'nullable|date|after_or_equal:start_date',
+
         ];
+        if ($this->user()->role === 'admin') {
+            $rules['manager_id'] = 'required|exists:users,id,role,manager';
+        }
+
+        return $rules;
     }
 }

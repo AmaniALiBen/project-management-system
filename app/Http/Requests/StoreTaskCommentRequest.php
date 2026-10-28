@@ -12,7 +12,7 @@ class StoreTaskCommentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,7 @@ class StoreTaskCommentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'body'=>'required|string|max:5000'
         ];
     }
 }

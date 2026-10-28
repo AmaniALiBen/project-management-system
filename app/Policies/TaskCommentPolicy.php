@@ -2,16 +2,16 @@
 
 namespace App\Policies;
 
+use App\Models\Task;
 use App\Models\TaskComment;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 
 class TaskCommentPolicy
 {
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny(User $user, Task $task): bool
     {
         return false;
     }
@@ -35,17 +35,19 @@ class TaskCommentPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, TaskComment $taskComment): bool
+    public function update(User $user, TaskComment $comment): bool
     {
-        return false;
+        return $user->id === $comment->user_id && $user->can('view', $comment->task);
     }
 
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, TaskComment $taskComment): bool
+    public function delete(User $user, TaskComment $comment): bool
     {
-        return false;
+        return $user->role === 'admin'
+        || ($user->id === $comment->user_id && $user->can('view', $comment->task))
+        || ($user->role === 'manager' && $user->id === $comment->task->project?->manager_id);
     }
 
     /**

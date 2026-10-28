@@ -12,7 +12,7 @@ class UpdateProjectRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,19 @@ class UpdateProjectRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
+        $start_date=$this->input('start_date')??$this->project->start_date->toDateString();
+       
+        $rules= [
+            'name'=>'sometimes|string|max:255',
+            'description'=>'nullable|string',
+            'status'=>'sometimes|in:planned,active,on_hold,completed,cancelled',
+            'start_date' => 'sometimes|date',
+            'due_date' => 'nullable|date|after_or_equal:'.$start_date,
         ];
+
+        if ($this->user()->role === 'admin') {
+            $rules['manager_id'] = 'sometimes|exists:users,id,role,manager';
+        }
+        return $rules;
     }
 }

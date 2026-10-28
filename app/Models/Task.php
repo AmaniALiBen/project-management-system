@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Database\Factories\TaskFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -48,4 +49,16 @@ class Task extends Model
             'due_date' => 'date',
         ];
     }
+
+    public function scopeVisibleTo(Builder $query, User $user)
+    {
+        return match ($user->role) {
+            'admin' => $query,
+            'manager' => $query->whereHas('project', fn ($q) => $q->where('manager_id', $user->id)),
+            default => $query->where('assigned_to', $user->id)
+        };
+
+    }
+
+    
 }

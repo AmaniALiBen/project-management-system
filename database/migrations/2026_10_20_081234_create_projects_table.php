@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('status')->default('planned');
             $table->date('start_date');
             $table->date('due_date')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
