@@ -1,4 +1,5 @@
 $kind: http-request
+description: allows the admin to add members to any project and the manager to add members to projects he manages returns the project with its members
 url: "{{base_url}}projects/9/members"
 method: POST
 body:

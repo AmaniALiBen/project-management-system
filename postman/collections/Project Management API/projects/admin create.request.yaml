@@ -1,4 +1,5 @@
 $kind: http-request
+description: allowes the admin to create a project where he sends the manager id and returns the created project
 url: "{{base_url}}projects"
 method: POST
 body:

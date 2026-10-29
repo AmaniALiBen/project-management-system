@@ -1,4 +1,5 @@
 $kind: http-request
+description: allows the admin to update any task and the manager to update tasks for the projects he manages returns updated task
 url: "{{base_url}}tasks/19"
 method: PUT
 body:

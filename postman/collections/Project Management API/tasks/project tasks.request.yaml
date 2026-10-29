@@ -1,4 +1,5 @@
 $kind: http-request
+description: if the user is allowed to view the project it returns the tasks he is allowed to see for that project
 url: "{{base_url}}projects/7/tasks?status=to_do"
 method: GET
 queryParams:

@@ -1,4 +1,11 @@
 $kind: http-request
+description: |-
+  returns a list of filtered tasks that the user is allowed to view  
+  where the:
+
+  admin is allowed to view all tasks  
+  managers is allowed to view all tasks of the projects he manages  
+  employee is allowed to view all tasks he is assigned to
 url: "{{base_url}}tasks?status=to_do&per_page=3"
 method: GET
 queryParams:

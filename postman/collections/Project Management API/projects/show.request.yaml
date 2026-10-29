@@ -1,4 +1,5 @@
 $kind: http-request
+description: allows the admin to view any project and the admin to view projects he manages returns project
 url: "{{base_url}}projects/9"
 method: GET
 examples: .resources/show.resources/examples

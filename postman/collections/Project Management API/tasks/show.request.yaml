@@ -1,4 +1,10 @@
 $kind: http-request
+description: |-
+  returns the task if the user is allowed to view it where
+
+  admin is allowed to view all tasks  
+  managers is allowed to view all tasks of the projects he manages  
+  employee is allowed to view all tasks he is assigned to
 url: "{{base_url}}tasks/19"
 method: GET
 examples: .resources/show.resources/examples

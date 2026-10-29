@@ -1,4 +1,5 @@
 $kind: http-request
+description: allows the writer of the comment to update it and returns the updated comment
 url: "{{base_url}}comments/57"
 method: PATCH
 body:

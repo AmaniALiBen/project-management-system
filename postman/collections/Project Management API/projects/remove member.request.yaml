@@ -1,4 +1,5 @@
 $kind: http-request
+description: allows the admin to remove members from any project and the manager to remove members from projects he manages
 url: "{{base_url}}projects/9/members/8"
 method: DELETE
 examples: .resources/remove member.resources/examples

@@ -1,4 +1,5 @@
 $kind: http-request
+description: allows the admin to update any project and returns the updated project
 url: "{{base_url}}projects/9"
 method: PUT
 body:

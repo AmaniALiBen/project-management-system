@@ -1,4 +1,5 @@
 $kind: http-request
+description: it lists all the comments of the task for any one who is allowed to view it
 url: "{{base_url}}tasks/19/comments"
 method: GET
 examples: .resources/list.resources/examples

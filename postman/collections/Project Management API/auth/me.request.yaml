@@ -1,4 +1,5 @@
 $kind: http-request
+description: returns info about the logged in user
 url: "{{base_url}}me"
 method: GET
 auth:

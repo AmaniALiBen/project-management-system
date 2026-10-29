@@ -1,4 +1,9 @@
 $kind: http-request
+description: |-
+  returns a list of filtered projects that the user is allowed to view where:  
+  admin is allowed to view all projects  
+  managers is allowed to view all of the projects he manages  
+  employee is allowed to view all of the projects he is a member of
 url: "{{base_url}}projects?status=active&per_page=2"
 method: GET
 queryParams:

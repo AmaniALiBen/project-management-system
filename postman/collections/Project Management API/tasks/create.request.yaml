@@ -1,4 +1,5 @@
 $kind: http-request
+description: allow the admin to create project tasks of any project and the manager to create tasks for the projects he manages and retrns the created task
 url: "{{base_url}}tasks"
 method: POST
 body:

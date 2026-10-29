@@ -1,4 +1,5 @@
 $kind: http-request
+description: allows tha admin ad the writer of the comment to delete it
 url: "{{base_url}}comments/58"
 method: DELETE
 examples: .resources/delete.resources/examples
