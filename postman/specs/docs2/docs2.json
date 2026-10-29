@@ -1,0 +1,402 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "docs2",
+    "version": "1.0.0",
+    "description": ""
+  },
+  "servers": [
+    {
+      "url": "{{base_url}}login"
+    },
+    {
+      "url": "{{base_url}}me"
+    },
+    {
+      "url": "{{base_url}}projects"
+    },
+    {
+      "url": "{{base_url}}tasks"
+    },
+    {
+      "url": "{{base_url}}comments"
+    },
+    {
+      "url": "{{base_url}}dashboard"
+    }
+  ],
+  "paths": {
+    "/": {
+      "post": {
+        "summary": "loginAdmin",
+        "responses": {},
+        "tags": [
+          "auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "email": "admin@example.com",
+                "password": "amaniali"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "me",
+        "responses": {},
+        "tags": [
+          "auth"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ]
+      }
+    },
+    "/password": {
+      "patch": {
+        "summary": "change password",
+        "responses": {},
+        "tags": [
+          "auth"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "current_password": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "password_confirmation": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "current_password": "password",
+                "password": "newPassword",
+                "password_confirmation": "newPassword"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/7": {
+      "put": {
+        "summary": "admin update",
+        "responses": {},
+        "tags": [
+          "projects"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "start_date": {
+                    "type": "string"
+                  },
+                  "due_date": {
+                    "type": "string",
+                    "format": "date"
+                  },
+                  "manager_id": {
+                    "type": "string",
+                    "format": "utc-millisec"
+                  }
+                }
+              },
+              "example": {
+                "name": "updated project",
+                "description": "my updated project",
+                "status": "active",
+                "start_date": "2026-12-1",
+                "due_date": "2026-12-15",
+                "manager_id": "4"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/6": {
+      "delete": {
+        "summary": "delete",
+        "responses": {},
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/8/members": {
+      "post": {
+        "summary": "add member",
+        "responses": {},
+        "tags": [
+          "projects"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "string",
+                    "format": "utc-millisec"
+                  }
+                }
+              },
+              "example": {
+                "user_id": "8"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/1/members/7": {
+      "delete": {
+        "summary": "remove member",
+        "responses": {},
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/8": {
+      "get": {
+        "summary": "show",
+        "responses": {},
+        "tags": [
+          "projects"
+        ]
+      }
+    },
+    "/19": {
+      "put": {
+        "summary": "update",
+        "responses": {},
+        "tags": [
+          "tasks"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "project_id": {
+                    "type": "string",
+                    "format": "utc-millisec"
+                  },
+                  "assigned_to": {
+                    "type": "string",
+                    "format": "utc-millisec"
+                  },
+                  "status": {
+                    "type": "string"
+                  },
+                  "priority": {
+                    "type": "string"
+                  },
+                  "start_date": {
+                    "type": "string"
+                  },
+                  "due_date": {
+                    "nullable": true
+                  }
+                }
+              },
+              "example": {
+                "title": "first task updated",
+                "description": "my first update for my first task",
+                "project_id": "7",
+                "assigned_to": "7",
+                "status": "to_do",
+                "priority": "high",
+                "start_date": "2026-12-1",
+                "due_date": null
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "show",
+        "responses": {},
+        "tags": [
+          "tasks"
+        ]
+      }
+    },
+    "/20": {
+      "delete": {
+        "summary": "delete",
+        "responses": {},
+        "tags": [
+          "tasks"
+        ]
+      }
+    },
+    "/19/status": {
+      "patch": {
+        "summary": "update status",
+        "responses": {},
+        "tags": [
+          "tasks"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "status": "in_review"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/19/comments": {
+      "get": {
+        "summary": "list",
+        "responses": {},
+        "tags": [
+          "Task comments"
+        ]
+      },
+      "post": {
+        "summary": "add",
+        "responses": {},
+        "tags": [
+          "Task comments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "body": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "body": "new comment"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/1": {
+      "put": {
+        "summary": "update",
+        "responses": {},
+        "tags": [
+          "Task comments"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "body": {
+                    "type": "string"
+                  }
+                }
+              },
+              "example": {
+                "body": "updated comment"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/2": {
+      "delete": {
+        "summary": "delete",
+        "responses": {},
+        "tags": [
+          "Task comments"
+        ]
+      }
+    },
+    "/statistics": {
+      "get": {
+        "summary": "statistics",
+        "responses": {},
+        "tags": [
+          "dashboard"
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ]
+}

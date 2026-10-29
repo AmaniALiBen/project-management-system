@@ -1,0 +1,11 @@
+$kind: http-request
+url: "{{base_url}}comments/57"
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \    \"body\": \"updated comment\"\r
+
+    }"
+order: 3000

@@ -1,0 +1,22 @@
+$kind: http-request
+url: "{{base_url}}tasks/19"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\": \"first task updated\",\r
+
+    \    \"description\": \"my first update for my first task\",\r
+
+    \    \"assigned_to\": \"7\",\r
+
+    \    \"status\": \"to_do\",\r
+
+    \    \"priority\": \"high\",\r
+
+    \    \"due_date\": null\r
+
+    }"
+examples: .resources/update.resources/examples
+order: 3000

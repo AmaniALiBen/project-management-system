@@ -1,0 +1,37 @@
+$kind: http-example
+request:
+  url: "{{base_url}}projects/9"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Host: 127.0.0.1:8000
+    Connection: close
+    X-Powered-By: PHP/8.4.26
+    Cache-Control: no-cache, private
+    Date: Wed, 28 Oct 2026 12:10:51 GMT
+    Content-Type: application/json
+    Access-Control-Allow-Origin: "*"
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "id": 9,
+          "name": "updated project",
+          "description": "my updated project",
+          "manager": {
+            "id": 4,
+            "name": "Janessa Pouros",
+            "email": "emmanuelle.jast@example.net",
+            "role": "manager"
+          },
+          "status": "active",
+          "start_date": "2026-12-01",
+          "due_date": "2026-12-15",
+          "members": [],
+          "tasks": []
+        }
+      }
+order: 1000

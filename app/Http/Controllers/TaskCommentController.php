@@ -47,20 +47,20 @@ class TaskCommentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTaskCommentRequest $request, TaskComment $taskComment)
+    public function update(UpdateTaskCommentRequest $request, TaskComment $comment)
     {
-        Gate::authorize('update',$taskComment);
-        $taskComment->update($request->validated());
-        return TaskCommentResource::make($taskComment->load('user'));
+        Gate::authorize('update',$comment);
+        $comment->update($request->validated());
+        return TaskCommentResource::make($comment->load('user'));
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from storage
      */
-    public function destroy(TaskComment $taskComment)
+    public function destroy(TaskComment $comment)
     {
-        Gate::authorize('delete',$taskComment);
-        $taskComment->delete();
+        Gate::authorize('delete',$comment);
+        $comment->delete();
         return response()->noContent();
     }
 }

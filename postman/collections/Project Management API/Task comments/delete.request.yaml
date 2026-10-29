@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{base_url}}comments/58"
+method: DELETE
+examples: .resources/delete.resources/examples
+order: 4000

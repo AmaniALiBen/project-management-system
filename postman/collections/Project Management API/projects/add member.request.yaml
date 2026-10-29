@@ -1,4 +1,8 @@
 $kind: http-request
-url: ""
-method: GET
-order: 4000
+url: "{{base_url}}projects/9/members"
+method: POST
+body:
+  type: json
+  content: "{\r\n    \"user_id\": \"8\"\r\n}"
+examples: .resources/add member.resources/examples
+order: 7000

@@ -1,0 +1,40 @@
+$kind: http-example
+request:
+  url: "{{base_url}}login"
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"email\": \"admin@example.com\",\r
+
+      \    \"password\": \"password\"\r
+
+      }\r\n"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Host: 127.0.0.1:8000
+    Connection: close
+    X-Powered-By: PHP/8.4.26
+    Cache-Control: no-cache, private
+    Date: Wed, 28 Oct 2026 12:00:35 GMT
+    Content-Type: application/json
+    X-RateLimit-Limit: "5"
+    X-RateLimit-Remaining: "4"
+    Access-Control-Allow-Origin: "*"
+  body:
+    type: json
+    content: |-
+      {
+        "message": "Logged in successfully",
+        "user": {
+          "id": 1,
+          "name": "admin",
+          "email": "admin@example.com",
+          "role": "admin"
+        },
+        "token": "11|EPUqrX0aJV6ly1zwlBRGdPH3piGJvne0T1Q7SXFH985c49c3"
+      }
+order: 1000

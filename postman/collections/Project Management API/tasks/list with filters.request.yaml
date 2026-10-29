@@ -1,0 +1,42 @@
+$kind: http-request
+url: "{{base_url}}tasks?status=to_do&per_page=3"
+method: GET
+queryParams:
+  - key: search
+    value: first task
+    disabled: true
+    description: ""
+  - key: description
+    value: my first task for my first project
+    disabled: true
+    description: ""
+  - key: project_id
+    value: "7"
+    disabled: true
+    description: ""
+  - key: assigned_to
+    value: "7"
+    disabled: true
+    description: ""
+  - key: status
+    value: to_do
+    disabled: false
+    description: ""
+  - key: priority
+    value: low
+    disabled: true
+    description: ""
+  - key: due_date
+    value: ""
+    disabled: true
+    description: ""
+  - key: due_date
+    value: ""
+    disabled: true
+    description: ""
+  - key: per_page
+    value: "3"
+    disabled: false
+    description: ""
+examples: .resources/list with filters.resources/examples
+order: 48

@@ -1,0 +1,30 @@
+$kind: http-request
+url: "{{base_url}}projects/7/tasks?status=to_do"
+method: GET
+queryParams:
+  - key: search
+    value: first task
+    disabled: true
+    description: ""
+  - key: description
+    value: my first task for my first project
+    disabled: true
+    description: ""
+  - key: assigned_to
+    value: "7"
+    disabled: true
+    description: ""
+  - key: status
+    value: to_do
+    disabled: false
+    description: ""
+  - key: priority
+    value: low
+    disabled: true
+    description: ""
+  - key: due_date
+    value: ""
+    disabled: true
+    description: ""
+examples: .resources/project tasks.resources/examples
+order: 8000

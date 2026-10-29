@@ -1,0 +1,18 @@
+$kind: http-request
+url: "{{base_url}}projects?status=active&per_page=2"
+method: GET
+queryParams:
+  - key: search
+    value: project
+    disabled: true
+    description: ""
+  - key: status
+    value: active
+    disabled: false
+    description: ""
+  - key: per_page
+    value: "2"
+    disabled: false
+    description: ""
+examples: .resources/list with filters.resources/examples
+order: 1000

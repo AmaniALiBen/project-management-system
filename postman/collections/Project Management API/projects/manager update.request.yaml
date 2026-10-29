@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{base_url}}projects/7"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"updated project\",\r
+
+    \    \"description\": \"my updated project\",\r
+
+    \    \"status\": \"active\",\r
+
+    \    \"start_date\": \"2026-12-1\",\r
+
+    \    \"due_date\": \"2026-12-15\"\r
+
+    }"
+order: 5000

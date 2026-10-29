@@ -37,7 +37,7 @@ class TaskCommentPolicy
      */
     public function update(User $user, TaskComment $comment): bool
     {
-        return $user->id === $comment->user_id && $user->can('view', $comment->task);
+        return ($user->id === $comment->user_id) && ($user->can('view', $comment->task));
     }
 
     /**

@@ -1,0 +1,56 @@
+$kind: http-example
+request:
+  url: "{{base_url}}tasks/19/status"
+  method: PATCH
+  body:
+    type: json
+    content: "{\r
+
+      \    \"status\": \"in_review\"\r
+
+      }"
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Host: 127.0.0.1:8000
+    Connection: close
+    X-Powered-By: PHP/8.4.26
+    Cache-Control: no-cache, private
+    Date: Wed, 28 Oct 2026 12:26:38 GMT
+    Content-Type: application/json
+    Access-Control-Allow-Origin: "*"
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "id": 19,
+          "title": "first task updated",
+          "description": "my first update for my first task",
+          "project": {
+            "id": 8,
+            "name": "project2",
+            "description": "my second project",
+            "status": "active",
+            "start_date": "2026-12-01",
+            "due_date": "2026-12-15"
+          },
+          "creator": {
+            "id": 5,
+            "name": "Madison Maggio",
+            "email": "creynolds@example.com",
+            "role": "manager"
+          },
+          "assignee": {
+            "id": 7,
+            "name": "Cooper Ruecker PhD",
+            "email": "lenna.pfeffer@example.net",
+            "role": "employee"
+          },
+          "status": "in_review",
+          "priority": "high",
+          "due_date": null
+        }
+      }
+order: 1000

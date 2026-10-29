@@ -1,0 +1,27 @@
+$kind: http-example
+request:
+  url: "{{base_url}}me"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Host: 127.0.0.1:8000
+    Connection: close
+    X-Powered-By: PHP/8.4.26
+    Cache-Control: no-cache, private
+    Date: Wed, 28 Oct 2026 12:03:26 GMT
+    Content-Type: application/json
+    Access-Control-Allow-Origin: "*"
+  body:
+    type: json
+    content: |-
+      {
+        "user": {
+          "id": 1,
+          "name": "admin",
+          "email": "admin@example.com",
+          "role": "admin"
+        }
+      }
+order: 1000

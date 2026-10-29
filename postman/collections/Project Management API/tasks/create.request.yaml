@@ -1,0 +1,24 @@
+$kind: http-request
+url: "{{base_url}}tasks"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"title\": \"first task\",\r
+
+    \    \"description\": \"my first task for my first project\",\r
+
+    \    \"project_id\": \"7\",\r
+
+    \    \"assigned_to\": \"7\",\r
+
+    \    \"status\": \"to_do\",\r
+
+    \    \"priority\": \"low\",\r
+
+    \    \"due_date\": null\r
+
+    }"
+examples: .resources/create.resources/examples
+order: 1000

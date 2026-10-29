@@ -1,0 +1,69 @@
+$kind: http-example
+name: create
+request:
+  url: "{{base_url}}tasks"
+  method: POST
+  body:
+    type: json
+    content: "{\r
+
+      \    \"title\": \"first task\",\r
+
+      \    \"description\": \"my first task for my first project\",\r
+
+      \    \"project_id\": \"7\",\r
+
+      \    \"assigned_to\": \"7\",\r
+
+      \    \"status\": \"to_do\",\r
+
+      \    \"priority\": \"low\",\r
+
+      \    \"due_date\": null\r
+
+      }"
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Host: 127.0.0.1:8000
+    Connection: close
+    X-Powered-By: PHP/8.4.26
+    Cache-Control: no-cache, private
+    Date: Wed, 28 Oct 2026 12:19:01 GMT
+    Content-Type: application/json
+    Access-Control-Allow-Origin: "*"
+  body:
+    type: json
+    content: |-
+      {
+        "data": {
+          "id": 21,
+          "title": "first task",
+          "description": "my first task for my first project",
+          "project": {
+            "id": 7,
+            "name": "project1",
+            "description": "my first project",
+            "status": "active",
+            "start_date": "2026-12-01",
+            "due_date": "2026-12-15"
+          },
+          "creator": {
+            "id": 1,
+            "name": "admin",
+            "email": "admin@example.com",
+            "role": "admin"
+          },
+          "assignee": {
+            "id": 7,
+            "name": "Cooper Ruecker PhD",
+            "email": "lenna.pfeffer@example.net",
+            "role": "employee"
+          },
+          "status": "to_do",
+          "priority": "low",
+          "due_date": null
+        }
+      }
+order: 2000

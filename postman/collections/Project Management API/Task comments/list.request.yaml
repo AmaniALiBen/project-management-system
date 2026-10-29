@@ -1,0 +1,5 @@
+$kind: http-request
+url: "{{base_url}}tasks/19/comments"
+method: GET
+examples: .resources/list.resources/examples
+order: 1000

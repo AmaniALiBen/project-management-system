@@ -1,0 +1,12 @@
+$kind: http-request
+url: "{{base_url}}tasks/19/comments"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"body\": \"new comment\"\r
+
+    }"
+examples: .resources/add.resources/examples
+order: 2000

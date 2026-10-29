@@ -1,0 +1,167 @@
+$kind: http-example
+request:
+  url: "{{base_url}}tasks?status=to_do"
+  method: GET
+  queryParams:
+    - key: search
+      value: first task
+      disabled: true
+      description: ""
+    - key: description
+      value: my first task for my first project
+      disabled: true
+      description: ""
+    - key: project_id
+      value: "7"
+      disabled: true
+      description: ""
+    - key: assigned_to
+      value: "7"
+      disabled: true
+      description: ""
+    - key: status
+      value: to_do
+      disabled: false
+      description: ""
+    - key: priority
+      value: low
+      disabled: true
+      description: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Host: 127.0.0.1:8000
+    Connection: close
+    X-Powered-By: PHP/8.4.26
+    Cache-Control: no-cache, private
+    Date: Wed, 28 Oct 2026 12:13:26 GMT
+    Content-Type: application/json
+    Access-Control-Allow-Origin: "*"
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": 12,
+            "title": "veritatis quia ullam totam velit sint",
+            "description": "Eligendi qui quibusdam minus et. Ut occaecati et ut sint nam at ut. Impedit et et quisquam nihil vel iure. Nesciunt dicta iste esse saepe.",
+            "project": {
+              "id": 4,
+              "name": "ipsam quis totam",
+              "description": "Cumque delectus voluptatem fugiat voluptatem dolor nesciunt provident. Dolorum dolorem quam ab dolor ducimus minima autem. Quasi officiis suscipit ut recusandae. Minus molestiae sequi enim asperiores et deserunt molestiae.",
+              "status": "cancelled",
+              "start_date": "2026-09-13",
+              "due_date": "2027-01-23"
+            },
+            "creator": {
+              "id": 6,
+              "name": "Timmy Tremblay",
+              "email": "gregg.macejkovic@example.org",
+              "role": "manager"
+            },
+            "assignee": {
+              "id": 15,
+              "name": "Marianna Denesik",
+              "email": "bechtelar.corine@example.org",
+              "role": "employee"
+            },
+            "status": "to_do",
+            "priority": "low",
+            "due_date": "2027-01-09"
+          },
+          {
+            "id": 14,
+            "title": "quidem voluptatum nihil veniam labore ab",
+            "description": "Quo in voluptatem aut magnam possimus possimus. Minus nihil et ea cumque inventore. Quas dolore deleniti aliquam neque dolor modi repellendus. Aliquid dolor nostrum consequuntur maiores tempore quod.",
+            "project": {
+              "id": 5,
+              "name": "quibusdam qui natus",
+              "description": "Voluptas ratione voluptas aut quibusdam et ut necessitatibus eligendi. Molestiae quidem maiores possimus nihil quidem. Voluptatem quo fugiat exercitationem soluta delectus occaecati.",
+              "status": "on_hold",
+              "start_date": "2026-08-22",
+              "due_date": "2027-02-08"
+            },
+            "creator": {
+              "id": 4,
+              "name": "Janessa Pouros",
+              "email": "emmanuelle.jast@example.net",
+              "role": "manager"
+            },
+            "assignee": {
+              "id": 15,
+              "name": "Marianna Denesik",
+              "email": "bechtelar.corine@example.org",
+              "role": "employee"
+            },
+            "status": "to_do",
+            "priority": "low",
+            "due_date": "2026-11-10"
+          },
+          {
+            "id": 18,
+            "title": "first task",
+            "description": "my first task for my first project",
+            "project": {
+              "id": 7,
+              "name": "project1",
+              "description": "my first project",
+              "status": "active",
+              "start_date": "2026-12-01",
+              "due_date": "2026-12-15"
+            },
+            "creator": {
+              "id": 1,
+              "name": "admin",
+              "email": "admin@example.com",
+              "role": "admin"
+            },
+            "assignee": {
+              "id": 7,
+              "name": "Cooper Ruecker PhD",
+              "email": "lenna.pfeffer@example.net",
+              "role": "employee"
+            },
+            "status": "to_do",
+            "priority": "low",
+            "due_date": null
+          }
+        ],
+        "links": {
+          "first": "http://127.0.0.1:8000/api/tasks?status=to_do&page=1",
+          "last": "http://127.0.0.1:8000/api/tasks?status=to_do&page=1",
+          "prev": null,
+          "next": null
+        },
+        "meta": {
+          "current_page": 1,
+          "from": 1,
+          "last_page": 1,
+          "links": [
+            {
+              "url": null,
+              "label": "&laquo; Previous",
+              "page": null,
+              "active": false
+            },
+            {
+              "url": "http://127.0.0.1:8000/api/tasks?status=to_do&page=1",
+              "label": "1",
+              "page": 1,
+              "active": true
+            },
+            {
+              "url": null,
+              "label": "Next &raquo;",
+              "page": null,
+              "active": false
+            }
+          ],
+          "path": "http://127.0.0.1:8000/api/tasks",
+          "per_page": 10,
+          "to": 3,
+          "total": 3
+        }
+      }
+order: 1000

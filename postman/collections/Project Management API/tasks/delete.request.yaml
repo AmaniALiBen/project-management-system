@@ -1,4 +1,5 @@
 $kind: http-request
-url: ""
-method: GET
+url: "{{base_url}}tasks/21"
+method: DELETE
+examples: .resources/delete.resources/examples
 order: 5000

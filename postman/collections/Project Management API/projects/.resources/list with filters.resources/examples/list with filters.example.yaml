@@ -1,0 +1,99 @@
+$kind: http-example
+request:
+  url: "{{base_url}}projects?status=active&per_page=2"
+  method: GET
+  queryParams:
+    - key: search
+      value: project
+      disabled: true
+      description: ""
+    - key: status
+      value: active
+      disabled: false
+      description: ""
+    - key: per_page
+      value: "2"
+      disabled: false
+      description: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Host: 127.0.0.1:8000
+    Connection: close
+    X-Powered-By: PHP/8.4.26
+    Cache-Control: no-cache, private
+    Date: Wed, 28 Oct 2026 12:06:58 GMT
+    Content-Type: application/json
+    Access-Control-Allow-Origin: "*"
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": 7,
+            "name": "project1",
+            "description": "my first project",
+            "manager": {
+              "id": 4,
+              "name": "Janessa Pouros",
+              "email": "emmanuelle.jast@example.net",
+              "role": "manager"
+            },
+            "status": "active",
+            "start_date": "2026-12-01",
+            "due_date": "2026-12-15"
+          },
+          {
+            "id": 8,
+            "name": "project2",
+            "description": "my second project",
+            "manager": {
+              "id": 5,
+              "name": "Madison Maggio",
+              "email": "creynolds@example.com",
+              "role": "manager"
+            },
+            "status": "active",
+            "start_date": "2026-12-01",
+            "due_date": "2026-12-15"
+          }
+        ],
+        "links": {
+          "first": "http://127.0.0.1:8000/api/projects?status=active&per_page=2&page=1",
+          "last": "http://127.0.0.1:8000/api/projects?status=active&per_page=2&page=1",
+          "prev": null,
+          "next": null
+        },
+        "meta": {
+          "current_page": 1,
+          "from": 1,
+          "last_page": 1,
+          "links": [
+            {
+              "url": null,
+              "label": "&laquo; Previous",
+              "page": null,
+              "active": false
+            },
+            {
+              "url": "http://127.0.0.1:8000/api/projects?status=active&per_page=2&page=1",
+              "label": "1",
+              "page": 1,
+              "active": true
+            },
+            {
+              "url": null,
+              "label": "Next &raquo;",
+              "page": null,
+              "active": false
+            }
+          ],
+          "path": "http://127.0.0.1:8000/api/projects",
+          "per_page": 2,
+          "to": 2,
+          "total": 2
+        }
+      }
+order: 1000

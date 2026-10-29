@@ -1,0 +1,18 @@
+$kind: http-example
+request:
+  url: "{{base_url}}projects/3"
+  method: DELETE
+response:
+  statusCode: 204
+  statusText: No Content
+  headers:
+    Host: 127.0.0.1:8000
+    Connection: close
+    X-Powered-By: PHP/8.4.26
+    Cache-Control: no-cache, private
+    Date: Wed, 28 Oct 2026 12:09:17 GMT
+    Access-Control-Allow-Origin: "*"
+  body:
+    type: text
+    content: ""
+order: 1000

@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{base_url}}projects"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"project3\",\r
+
+    \    \"description\": \"my third project\",\r
+
+    \    \"status\": \"planned\",\r
+
+    \    \"start_date\": \"2026-12-1\",\r
+
+    \    \"due_date\": \"2026-12-15\"\r
+
+    }"
+order: 1922

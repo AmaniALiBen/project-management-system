@@ -1,4 +1,9 @@
 $kind: http-request
-url: ""
-method: GET
+url: "{{base_url}}logout"
+method: POST
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"
+examples: .resources/logout.resources/examples
 order: 2000

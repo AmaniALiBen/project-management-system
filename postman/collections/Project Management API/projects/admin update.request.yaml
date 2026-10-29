@@ -1,0 +1,22 @@
+$kind: http-request
+url: "{{base_url}}projects/9"
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \    \"name\": \"updated project\",\r
+
+    \    \"description\": \"my updated project\",\r
+
+    \    \"status\": \"active\",\r
+
+    \    \"start_date\": \"2026-12-1\",\r
+
+    \    \"due_date\": \"2026-12-15\",\r
+
+    \    \"manager_id\": \"4\"\r
+
+    }"
+examples: .resources/admin update.resources/examples
+order: 1963

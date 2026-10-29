@@ -1,0 +1,34 @@
+$kind: http-example
+request:
+  url: "{{base_url}}dashboard/statistics"
+  method: GET
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Host: 127.0.0.1:8000
+    Connection: close
+    X-Powered-By: PHP/8.4.26
+    Cache-Control: no-cache, private
+    Date: Thu, 29 Oct 2026 07:00:35 GMT
+    Content-Type: application/json
+    Access-Control-Allow-Origin: "*"
+  body:
+    type: json
+    content: |-
+      {
+        "projects": {
+          "total": 7,
+          "active": 3,
+          "completed": 1
+        },
+        "tasks": {
+          "total": 15,
+          "to_do": 3,
+          "in_progress": 5,
+          "in_review": 4,
+          "done": 3,
+          "overdue": 0
+        }
+      }
+order: 1000

@@ -1,4 +1,24 @@
 $kind: http-request
-url: ""
-method: GET
-order: 6000
+url: "{{base_url}}login"
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\": \"lenna.pfeffer@example.net\",\r
+
+    \    \"password\": \"password\"\r
+
+    }"
+auth:
+  type: noauth
+scripts:
+  - type: afterResponse
+    code: "if (pm.response.code === 200) {\r
+
+      \    pm.environment.set(\"token\", pm.response.json().token);\r
+
+      }"
+    language: text/javascript
+examples: .resources/loginEmployee.resources/examples
+order: 995

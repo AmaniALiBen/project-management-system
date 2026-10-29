@@ -1,4 +1,12 @@
 $kind: http-request
-url: ""
-method: GET
+url: "{{base_url}}tasks/19/status"
+method: PATCH
+body:
+  type: json
+  content: "{\r
+
+    \    \"status\": \"in_review\"\r
+
+    }"
+examples: .resources/update status.resources/examples
 order: 7000
